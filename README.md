@@ -30,6 +30,18 @@ This program can be used in Microsoft Windows, Apple Mac OS and Linux environmen
 <br>
 <img src="res/ddnstokenconfigurator.png" width=360px><br>
 <br>
+
+# How to Install on Raspberry Pi Pico W
+We are currently writing an explanatory document. {...}
+
+<br>
+
+# How to Use
+We are currently writing an explanatory document. {...}
+
+<br>
+
+# Contribute
 Perhaps you can write code to support other DDNS services based on this project. If you write code to support other services, please share with us.<br>
 <br>
 Thank-you
