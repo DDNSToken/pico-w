@@ -3,7 +3,6 @@
 
 uf2conv.py
 uf2families.json
-ddnstoken_zip2fwm.py
 ddnstoken_wol.py
 ddnstoken_wol_config.ini
 ddnstoken_dyndns.py
