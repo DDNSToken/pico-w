@@ -51,7 +51,7 @@ This document uses compiled MicroPython for explanation.<br>
 ## Install MicriPython on your Raspberry Pi Pico W
 >
 > Download the <b>firmware.uf2</b> file using the link below.<br>
-> https://github.com/DDNSToken/release/raw/main/firmware.uf2<br>
+> https://github.com/DDNSToken/release/raw/main/pico-w/firmware.uf2<br>
 > 
 > While holding down the BOOTSEL button of the Raspberry Pi Pico W, connect it to the USB port of the PC. After connecting to the PC, release the BOOTSEL button.<br>
 >
