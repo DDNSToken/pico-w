@@ -24,6 +24,10 @@ python ddnstoken_mpy2fwm.py
 zip ddnstoken.${VER}.zip ddnstoken.py ddnstoken_asm.py ddnstoken_starter.fwm ddnstoken_misc.fwm ddnstoken_configuration.fwm ddnstoken_imdns.fwm ddnstoken_updater.fwm ddnstoken_cloudflare.fwm ddnstoken_godaddy.fwm 
 mv ddnstoken.${VER}.zip ./build/.
 python ddnstoken_zip2fwm.py 
+cd ./build
+rm -f ddnstoken.${VER}.zip
+zip ddnstoken.${VER}.zip ddnstoken.${VER}.fwm 
+cd ..
 
 rm -f *.mpy
 rm -f *.fwm
