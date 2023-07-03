@@ -17,7 +17,7 @@ import random
 
 from machine import Pin
 
-VER = "1.2.3"
+VER = "1.2.4"
 
 # No-IP 기준
 # H/W Clients
@@ -26,6 +26,9 @@ VER = "1.2.3"
 # User-Agent: Company NameOfProgram/OSVersion-ReleaseVersion maintainer-contact@example.com
 USER_AGENT = "Certchip DDNSToken/" + VER + " ddnstoken@certchip.com"
 
+DDNS_SERVICE_NONE = {"ddns": "none",
+     "name":"None",
+     "interval": 15}
 DDNS_SERVICE_LIST = [
     {"ddns": "google",
      "name":"Google",
@@ -214,14 +217,14 @@ def get_ddns_service():
         with open(DDNS_JSON_FILE, "r") as file:
             data = json.load(file)
             return data["service"]
-    return DDNS_SERVICE_LIST[0]
+    return DDNS_SERVICE_NONE
 
 def get_ddns_service_name():
     if is_file_exists(DDNS_JSON_FILE):
         with open(DDNS_JSON_FILE, "r") as file:
             data = json.load(file)
             return data["service"]["name"]
-    return DDNS_SERVICE_LIST[0]["name"]
+    return DDNS_SERVICE_NONE["name"]
 
 def make_star_string(s):
     return "*" * len(s)
@@ -373,7 +376,7 @@ def req_chkip_v4(url):
         headers = {
 	        "User-Agent": USER_AGENT
         }
-        
+
         response = urequests.get(url, headers=headers, timeout=30)
 
         # 연결 닫기

@@ -69,16 +69,22 @@ if config_wifi_ssid != "" and config_wifi_pass != "":
             led.off()
             utime.sleep(1)
             led.on()
+            if i > 10:
+                print("### Failed to connect to WiFi network.")
+                print("### If you entered the WiFi SSID and password correctly,")
+                print("### turn off the Raspberry Pi Pico W and turn it back on.")
+
 else:
     print("Need to configration for WiFi network")
     
 led.off()
 
-
 if wiFiConnedted == True:
     print("### Updater ###")
     print("DDNS:", ddnsName)
-    if ddns == "imdns":
+    if ddns == "none":
+        print("Please set up the DDNS service.")
+    elif ddns == "imdns":
         import ddnstoken_imdns
     elif ddns in ddnstoken_misc.DDNS_UPDATERS:
         import ddnstoken_updater

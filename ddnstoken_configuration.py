@@ -15,6 +15,7 @@ import ubinascii
 from machine import Pin
 
 import usocket as socket
+import ddnstoken_misc
 
 led = Pin("LED", Pin.OUT)
 
@@ -93,13 +94,15 @@ print("### MAC Address ###")
 config_device = ":".join("{:02X}".format(b) for b in ap.config("mac"))
 print(config_device)
 
+print("### Device ID ###")        
+config_device = ddnstoken_misc.get_device_id()
 print(config_device)
 
 ssid = "DDNSToken_"+config_device
 ssidpw = config_device
 print("SSID:" + ssid)
-print("PASS:" + ssidpw);
-print("HOST:" + "http://192.168.4.1");
+print("PASS:" + ssidpw)
+print("HOST:" + "http://192.168.4.1")
 ap.config(essid=ssid, password=ssidpw)  # AP의 SSID와 비밀번호 설정
 ap.ifconfig(("192.168.4.1", "255.255.255.0", "192.168.4.1", "8.8.8.8"))
 ap.active(True)
@@ -173,6 +176,10 @@ print("--------------------------------------------------")
 print("You can configuration with web browser")
 print("at", "http://192.168.4.1")
 
+print("##################################################")
+print("If you entered the WiFi SSID and password correctly,")
+print("turn off the Raspberry Pi Pico W and turn it back on.")
+
 while True:
     led.on() # led on    
     client_socket, addr = server_socket.accept()
@@ -180,5 +187,3 @@ while True:
     handle_request(client_socket)    
     led.off() # led off
     utime.sleep(0.1)
-
-
